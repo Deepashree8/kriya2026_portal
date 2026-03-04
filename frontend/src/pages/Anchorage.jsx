@@ -134,7 +134,7 @@ export default function Anchorage() {
   const goToRound2 = () => {
     const ok = window.confirm("⚠️ Enter Round 2 now?\nYou cannot return back to Round 1.");
     if (!ok) return;
-    navigate("/round2", { replace: true, state: { ship: selectedShip } });
+    navigate("/map", { replace: true, state: { ship: selectedShip } });
   };
 
   return (
