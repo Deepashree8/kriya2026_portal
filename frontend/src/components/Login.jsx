@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../styles/login.css'
+import '../styles/Login.css'
 
 function Login({ onLoginSuccess }) {
     const [kriyaId, setKriyaId] = useState('')

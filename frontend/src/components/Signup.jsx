@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import '../styles/Signup.css'
-import '../styles/auth.css'
-import psglogo from '../assets/psglogo.png'
 
 function Signup({ onLogin }) {
     const [name, setName] = useState('')
@@ -12,96 +10,89 @@ function Signup({ onLogin }) {
 
     const handleSignup = (e) => {
         e.preventDefault()
-        console.log('Name:', name)
-        console.log('Roll No:', rollnum)
-        console.log('Email:', email)
-        console.log('Mobile:', mobile)
-        console.log('College:', college)
-        // TODO: send signup request
+        console.log({ name, rollnum, email, mobile, college })
+        // Process signup logic here
     }
 
     return (
         <div className="signup-container">
-            <div className="auth-card-wrapper">
-                <div className="auth-tabs">
-                    <div className="auth-tab" onClick={onLogin}>Login</div>
-                    <div className="auth-tab active">Sign Up</div>
+            <div className="signup-glass-card">
+                <div className="signup-header">
+                    <h1>KRIYA<span>2026</span></h1>
+                    <p>Enlist in the Cyber Seas</p>
                 </div>
+
                 <form onSubmit={handleSignup}>
-                    <div className='form-header'>
-                        <div><strong>Sign&nbsp;Up</strong></div>
-                        <div>Enter the crew — sign up and conquer the seas of code!</div>
+                    <div className="signup-grid">
+                        <div className="form-group full-width">
+                            <label>Full Name</label>
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Enter your full name"
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Roll Number</label>
+                            <input
+                                type="text"
+                                value={rollnum}
+                                onChange={(e) => setRollnum(e.target.value)}
+                                placeholder="Roll No"
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Mobile</label>
+                            <input
+                                type="tel"
+                                value={mobile}
+                                onChange={(e) => setMobile(e.target.value)}
+                                placeholder="Phone"
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group full-width">
+                            <label>Email Address</label>
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="you@university.com"
+                                required
+                            />
+                        </div>
+
+                        <div className="form-group full-width">
+                            <label>College Name</label>
+                            <input
+                                type="text"
+                                value={college}
+                                onChange={(e) => setCollege(e.target.value)}
+                                placeholder="Your institution"
+                                required
+                            />
+                        </div>
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="name">Full Name:</label>
-                        <input
-                            type="text"
-                            id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            placeholder="Enter your full name"
-                            required
-                        />
-                    </div>
+                    <button type="submit" className="signup-btn">Create Account</button>
 
-                    <div className="form-group">
-                        <label htmlFor="rollnum">Roll Number:</label>
-                        <input
-                            type="text"
-                            id="rollnum"
-                            value={rollnum}
-                            onChange={(e) => setRollnum(e.target.value)}
-                            placeholder="Enter your roll number"
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="email">Email:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="you@example.com"
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="mobile">Mobile Number:</label>
-                        <input
-                            type="tel"
-                            id="mobile"
-                            value={mobile}
-                            onChange={(e) => setMobile(e.target.value)}
-                            placeholder="Enter your mobile number"
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="college">College Name:</label>
-                        <input
-                            type="text"
-                            id="college"
-                            value={college}
-                            onChange={(e) => setCollege(e.target.value)}
-                            placeholder="Enter your college name"
-                            required
-                        />
-                    </div>
-
-
-                    <button type="submit">Register</button>
                     <div className="switch-link">
-                        Already registered?{' '}
+                        Already part of the crew?
                         <button type="button" className="link-button" onClick={onLogin}>
-                            Log&nbsp;In
+                            Login Here
                         </button>
                     </div>
                 </form>
+
+                <div className="signup-footer">
+                    <p>KRIYA REGISTRATION PROTOCOL v2.6</p>
+                </div>
             </div>
         </div>
     )

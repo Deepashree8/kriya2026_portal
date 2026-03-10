@@ -1,147 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap');
+
 .signup-container {
+    height: 100vh;
+    width: 100vw;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: radial-gradient(circle at center, #000428, #004e92, #00d2ff);
-    background-size: 200% 200%;
-    animation: oceanFlow 20s ease infinite;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    color: #fff;
-    padding: 2rem 0;
+    justify-content: center;
+    background: radial-gradient(circle at center, #0f172a, #020617);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
 }
 
-@keyframes oceanFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.signup-container form {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 24px;
-    padding: 2.5rem;
-    width: 100%;
+.signup-glass-card {
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 28px;
+    padding: 35px 45px;
+    width: 90%;
     max-width: 450px;
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 25px 50px -12px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(255, 215, 0, 0.1);
+    animation: cardScaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    max-height: 90vh;
 }
 
-.form-header {
+@keyframes cardScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.signup-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
 }
 
-.form-header strong {
+.signup-header h1 {
     font-size: 2.2rem;
-    display: block;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(to right, #fff, #00d2ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin: 0;
+    color: #FFD700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
 }
 
-.form-header div:last-child {
-    font-size: 0.95rem;
-    opacity: 0.7;
-    line-height: 1.5;
-    font-style: italic;
+.signup-header h1 span {
+    color: #fff;
+}
+
+.signup-header p {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.signup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 400px) {
+    .signup-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .form-group {
-    margin-bottom: 1.2rem;
+    margin-bottom: 18px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+@media (max-width: 400px) {
+    .form-group.full-width {
+        grid-column: span 1;
+    }
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.4rem;
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #FFD700;
+    margin-bottom: 8px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    letter-spacing: 0.08rem;
-    opacity: 0.85;
 }
 
 .form-group input {
     width: 100%;
-    padding: 0.85rem 1.2rem;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 12px;
-    color: #fff;
+    padding: 12px 15px;
+    color: white;
     font-size: 0.95rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     box-sizing: border-box;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #00d2ff;
-    background: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
-    transform: scale(1.01);
+    border-color: #FFD700;
+    background: rgba(255, 215, 0, 0.06);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
 }
 
-button[type="submit"] {
+.signup-btn {
     width: 100%;
-    padding: 1rem;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #020617;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-    color: #fff;
-    font-weight: 700;
+    padding: 14px;
     font-size: 1rem;
+    font-weight: 800;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1.5rem;
+    transition: all 0.4s ease;
     text-transform: uppercase;
-    letter-spacing: 0.15rem;
-    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+    letter-spacing: 2px;
+    margin-top: 5px;
 }
 
-button[type="submit"]:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5);
-    filter: brightness(1.2);
-}
-
-button[type="submit"]:active {
-    transform: translateY(-1px);
+.signup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
 }
 
 .switch-link {
     text-align: center;
-    margin-top: 1.8rem;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
+    margin-top: 25px;
+    font-size: 0.8rem;
+    color: #64748b;
 }
 
 .link-button {
     background: none;
     border: none;
-    color: #00d2ff;
-    font-weight: 600;
-    padding: 0;
-    margin: 0;
-    width: auto;
-    text-transform: none;
-    letter-spacing: normal;
+    color: #FFD700;
+    font-weight: 700;
     cursor: pointer;
-    display: inline;
-    transition: color 0.2s ease;
+    text-decoration: none;
+    padding: 0 5px;
 }
 
 .link-button:hover {
-    color: #fff;
     text-decoration: underline;
+}
+
+.signup-footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.65rem;
+    color: #475569;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }

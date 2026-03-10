@@ -4,8 +4,8 @@ import AdminPage from './components/AdminPage'
 import Login from './components/Login'
 
 function App() {
-    // Stage-based view management: 'login', 'map', or 'admin'
-    const [view, setView] = useState('map'); // Starting with 'map' so you can see it immediately
+    // State-based view management: 'login', 'map', or 'admin'
+    const [view, setView] = useState('map'); // Default to 'map' for dev preview
 
     const handleLoginSuccess = () => {
         setView('map');
