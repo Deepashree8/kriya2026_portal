@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useGame } from "../context/GameContext";
 import "./SeaSolve.css";
-
-const API_BASE = "http://localhost:5000/kriyabe";
+import { API_BASE } from "../config/api";
 
 export default function SeaSolve() {
   const location = useLocation();

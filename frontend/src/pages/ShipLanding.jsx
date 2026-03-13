@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./ShipLanding.css";
+import { API_BASE } from "../config/api";
 
 const ships = [
   {
@@ -31,7 +32,7 @@ export default function ShipLanding() {
       const team = JSON.parse(localStorage.getItem("team"));
 
       const res = await fetch(
-        "http://localhost:3000/kriyabe/api/teams/select-ship",
+        `${API_BASE}/api/teams/select-ship`,
         {
           method: "POST",
           headers: {

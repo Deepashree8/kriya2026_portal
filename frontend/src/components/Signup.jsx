@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/Signup.css";
 import Login from "./Login.jsx";
+import { API_BASE } from "../config/api";
 
 function Signup() {
   const [teamName, setTeamName] = useState("");
@@ -20,16 +21,17 @@ function Signup() {
     };
 
     try {
-      const res = await fetch(
-        "http://localhost:3000/kriyabe/api/auth/signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(signupData),
-        }
-      );
+     const res = await fetch(
+  `${API_BASE}/api/auth/signup`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(signupData),
+  }
+);
+      
 
       const data = await res.json();
 
